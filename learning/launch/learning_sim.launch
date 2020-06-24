@@ -1,0 +1,18 @@
+<launch>
+
+  <!-- Launch simulation -->
+  <include file='$(find racecar_simulator)/launch/simulate.launch'/>
+
+  <!-- Launch drive control -->
+  <node pkg='drive_control' name='drive' type='drive_sim.py' output='screen'/>
+
+  <!-- Launch camera vision -->
+  <!-- <include file="$(find vision)/launch/object_detection.launch"/> -->
+  
+  <!-- Launch localization -->
+  <!-- <include file="$(find localization-solution)/launch/localize_simulation.launch"/> -->
+
+  <!-- Launch learning module -->
+  <node pkg='learning' name='learning' type='run_game.py' output='screen' />
+
+</launch>

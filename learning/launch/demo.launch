@@ -1,0 +1,15 @@
+<launch>
+
+  <!-- Launch drive control -->
+  <node pkg='drive_control' name='drive' type='drive_real.py' output='screen'/>
+  
+  <!-- Launch localization -->
+  <include file="$(find localization-solution)/launch/localize_real_env.launch"/>
+
+  <!-- Launch vision -->
+  <include file='$(find vision)/launch/object_detection.launch'/>
+
+  <!-- Launch learning module -->
+  <node pkg='learning' name='learning' type='demo.py' output='screen' />
+
+</launch>

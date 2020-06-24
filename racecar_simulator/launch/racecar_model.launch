@@ -1,0 +1,27 @@
+<launch>
+  <!-- Open the model file -->
+  <arg name="racecar_xacro" default="$(find racecar_simulator)/urdf/racecar.xacro"/>
+  <param name="robot_description" command="xacro --inorder '$(arg racecar_xacro)'"/>
+
+  <!-- Add the transformations -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <param name="robot_description"
+    command="$(find xacro)/xacro --inorder '$(find racecar_simulator)/urdf/racecar.xacro'" />
+
+  <!-- Spawn robot in gazebo -->
+  <!-- <include file="$(find gazebo_ros)/launch/empty_world.launch">
+  	<arg name="world_name" value="$(find racecar_simulator)/worlds/racecar.world"/>
+	<arg name="paused" value="false"/>
+	<arg name="use_sim_time" value="true"/>
+	<arg name="gui" value="true"/>
+	<arg name="recording" value="false"/>
+	<arg name="debug" value="false"/>
+  </include> -->
+
+  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+  <!-- <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -model racecar -param robot_description"/> -->
+
+</launch>

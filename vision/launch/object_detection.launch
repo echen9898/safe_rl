@@ -1,0 +1,12 @@
+<launch>
+
+  <!-- Launch ZED camera -->
+  <include file='$(find zed_wrapper)/launch/zed.launch'/>
+
+  <!-- Launch object detector -->
+  <node pkg='vision' name='object_detector' type='object_detector.py' output='screen'/>
+
+  <!-- Launch homography -->
+  <node pkg='vision' name='homography' type='homography.py' output='screen'/>
+
+</launch>

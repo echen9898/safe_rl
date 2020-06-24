@@ -1,0 +1,6 @@
+<launch>
+
+  <!-- Launch drive module -->
+  <node pkg='drive_control' name='drive' type='drive_real.py' output='screen' />
+
+</launch>
